@@ -1,0 +1,10 @@
+name: TestPlugin
+main: net.stegr.testplugin.TestPlugin
+version: 1.0
+commands:
+  test:
+    usage: /test
+    description: TEST TEST TEST
+  speed:
+    usage: /speed <Flying speed>
+    desription: Sets flying speed.

@@ -1,0 +1,7 @@
+general:
+  UseSQL: false
+SQL:
+  IP: localhost
+  Port: 3306
+  User: Stefan
+  Password: '1234'
