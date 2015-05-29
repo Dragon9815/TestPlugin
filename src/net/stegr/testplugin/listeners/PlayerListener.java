@@ -65,50 +65,53 @@ public class PlayerListener implements Listener
 
         b = event.getClickedBlock();
 
-        if(b.getType().equals(Material.CHEST) || b.getType().equals(Material.TRAPPED_CHEST))
+        if(event.getPlayer().isSneaking())
         {
-            if(b.getType().equals(Material.TRAPPED_CHEST))
+            if (b.getType().equals(Material.CHEST) || b.getType().equals(Material.TRAPPED_CHEST))
             {
-                
+                if (b.getType().equals(Material.TRAPPED_CHEST))
+                {
+                    trapped = true;
+                }
+
+                Location loc = b.getLocation();
+                //event.getPlayer().sendMessage(loc.toString());
+                Location temp;
+
+                temp = loc.clone();
+                temp.add(0, 0, 1);
+                //event.getPlayer().sendMessage(temp.toString());
+                if ((temp.getBlock().getType().equals(Material.CHEST) && !trapped) || (temp.getBlock().getType().equals(Material.TRAPPED_CHEST) && trapped))
+                {
+                    event.getPlayer().sendMessage("Double Chest!!!!");
+                }
+
+                temp = loc.clone();
+                temp.add(1, 0, 0);
+                //event.getPlayer().sendMessage(temp.toString());
+                if ((temp.getBlock().getType().equals(Material.CHEST) && !trapped) || (temp.getBlock().getType().equals(Material.TRAPPED_CHEST) && trapped))
+                {
+                    event.getPlayer().sendMessage("Double Chest!!!!");
+                }
+
+                temp = loc.clone();
+                temp.add(0, 0, -1);
+                //event.getPlayer().sendMessage(temp.toString());
+                if ((temp.getBlock().getType().equals(Material.CHEST) && !trapped) || (temp.getBlock().getType().equals(Material.TRAPPED_CHEST) && trapped))
+                {
+                    event.getPlayer().sendMessage("Double Chest!!!!");
+                }
+
+                temp = loc.clone();
+                temp.add(-1, 0, 0);
+                //event.getPlayer().sendMessage(temp.toString());
+                if ((temp.getBlock().getType().equals(Material.CHEST) && !trapped) || (temp.getBlock().getType().equals(Material.TRAPPED_CHEST) && trapped))
+                {
+                    event.getPlayer().sendMessage("Double Chest!!!!");
+                }
+
             }
-
-            Location loc = b.getLocation();
-            //event.getPlayer().sendMessage(loc.toString());
-            Location temp;
-
-            temp = loc.clone();
-            temp.add(0, 0, 1);
-            //event.getPlayer().sendMessage(temp.toString());
-            if(temp.getBlock().getType().equals(Material.CHEST))
-            {
-                event.getPlayer().sendMessage("Double Chest!!!!");
-            }
-
-            temp = loc.clone();
-            temp.add(1, 0, 0);
-            //event.getPlayer().sendMessage(temp.toString());
-            if(temp.getBlock().getType().equals(Material.CHEST))
-            {
-                event.getPlayer().sendMessage("Double Chest!!!!");
-            }
-
-            temp = loc.clone();
-            temp.add(0, 0, -1);
-            //event.getPlayer().sendMessage(temp.toString());
-            if(temp.getBlock().getType().equals(Material.CHEST))
-            {
-                event.getPlayer().sendMessage("Double Chest!!!!");
-            }
-
-            temp = loc.clone();
-            temp.add(-1, 0, 0);
-            //event.getPlayer().sendMessage(temp.toString());
-            if(temp.getBlock().getType().equals(Material.CHEST))
-            {
-                event.getPlayer().sendMessage("Double Chest!!!!");
-            }
-
+            event.getPlayer().sendMessage(event.getClickedBlock().getType().name());
         }
-        event.getPlayer().sendMessage(event.getClickedBlock().getType().name());
     }
 }

@@ -9,6 +9,7 @@ import net.stegr.testplugin.utils.GroupHelper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.security.acl.Group;
@@ -50,4 +51,6 @@ public class TestPlugin extends JavaPlugin
     {
         return CommandHandler.handleCommand(sender, cmd, label, args);
     }
+
+
 }
