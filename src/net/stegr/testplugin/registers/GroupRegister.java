@@ -1,4 +1,4 @@
-package net.stegr.testplugin.utils;
+package net.stegr.testplugin.registers;
 
 import net.stegr.testplugin.group.Group;
 import net.stegr.testplugin.group.Member;
@@ -8,14 +8,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
 
-public class GroupHelper
+public class GroupRegister
 {
     private static JavaPlugin plugin;
 
     private static List<Group> groupsList;
     private static FileConfiguration configFile;
 
-    public GroupHelper(JavaPlugin plugin)
+    public GroupRegister(JavaPlugin plugin)
     {
         this.plugin = plugin;
     }

@@ -5,21 +5,14 @@ import net.stegr.testplugin.handlers.ConfigurationHandler;
 import net.stegr.testplugin.handlers.FileHandler;
 import net.stegr.testplugin.handlers.RecipeHandler;
 import net.stegr.testplugin.listeners.PlayerListener;
-import net.stegr.testplugin.utils.GroupHelper;
+import net.stegr.testplugin.registers.ChestRegister;
+import net.stegr.testplugin.registers.GroupRegister;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.security.acl.Group;
-import java.util.HashSet;
-import java.util.Set;
 
 public class TestPlugin extends JavaPlugin
 {
-    private Set<Group> groups;
-
     @Override
     public void onEnable()
     {
@@ -28,14 +21,11 @@ public class TestPlugin extends JavaPlugin
         new RecipeHandler(this);
         new CommandHandler(this);
         new FileHandler(this);
-        new GroupHelper(this);
-
-        groups = new HashSet<>();
+        new GroupRegister(this);
+        new ChestRegister(this);
 
         ConfigurationHandler.load();
         RecipeHandler.loadRecipes();
-
-        Player p;
 
         getLogger().info("Plugin Loaded");
     }
